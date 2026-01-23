@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ordering.system.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.ordering.system.entity.User">
+        <id column="id" property="id"/>
+        <result column="open_id" property="openId"/>
+        <result column="nickname" property="nickname"/>
+        <result column="avatar" property="avatar"/>
+        <result column="authorized" property="authorized"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <select id="findByOpenId" resultMap="BaseResultMap">
+        SELECT * FROM user WHERE open_id = #{openId}
+    </select>
+
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        <!-- 核心 SQL：查询所有数据 -->
+        SELECT * FROM user
+    </select>
+
+    <insert id="insert" parameterType="com.ordering.system.entity.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (open_id, nickname, avatar, authorized, create_time, update_time)
+        VALUES (#{openId}, #{nickname}, #{avatar}, #{authorized}, #{createTime}, #{updateTime})
+    </insert>
+
+    <update id="update" parameterType="com.ordering.system.entity.User">
+        UPDATE user
+        SET nickname = #{nickname},
+            avatar = #{avatar},
+            authorized = #{authorized},
+            update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

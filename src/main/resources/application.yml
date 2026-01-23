@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ordering-system
+  profiles:
+    active: prod
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ordering.system.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 微信小程序配置
+wechat:
+  miniapp:
+    app-id: wx6a8f161be8320ae9
+    app-secret: 0e72d213aa1abb72014999742ed88670
+
+# JWT配置
+jwt:
+  secret: your-secret-key-change-this-in-production
+  expiration: 604800000  # 7天

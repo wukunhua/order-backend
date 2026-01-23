@@ -1,0 +1,36 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+.idea/
+*.iml
+
+# Node
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Vue
+.vite/
+.cache/
+
+# UniApp
+unpackage/
+.hbuilderx/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config
+backend/src/main/resources/application-pro.yml
