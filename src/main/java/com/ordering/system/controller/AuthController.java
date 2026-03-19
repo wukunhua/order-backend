@@ -53,6 +53,7 @@ public class AuthController {
             Map<String, Object> data = new HashMap<>();
             data.put("userId", user.getId());
             data.put("authorized", user.getAuthorized());
+            data.put("openId", openId);
 
             return Result.success(data);
         } catch (Exception e) {
